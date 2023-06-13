@@ -1,16 +1,19 @@
 locals {
-	FlowLogTrafficType = "REJECT"
+	FlowLogAccessRoleName = "${local.Preamble}-vpc-flow-log-access-role-${local.Region}"
+	FlowLogGroupName = "${local.Preamble}-vpc-flow-log-group-${local.Region}"
+	FlowLogTrafficType = var.FlowLogTrafficType
 	InboundIPv4CidrBlock = var.InboundIPv4CidrBlock
-	ProjectTag = var.ProjectTag
+	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}
 	PublicSubnetAvailabilityZone = var.PublicSubnetAvailabilityZone
-	PublicSubnetCidrBlock = "10.0.10.0/24"
+	PublicSubnetCidrBlock = var.PublicSubnetCidrBlock
 	Region = var.Region
-	RegionTag = upper(replace(local.Region, "-", "_"))
+	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag
-	VpcCidrBlock = "10.0.0.0/16"
-	VpcEnableDnsHostnames = true
-	VpcEnableDnsSupport = true
-	VpcInstanceTenancy = "default"
-	uuid = substr(uuid(), 1, 6)
+	UserProjectTag = var.UserProjectTag
+	Version = var.Version
+	VpcCidrBlock = var.VpcCidrBlock
+	VpcEnableDnsHostnames = var.VpcEnableDnsHostnames
+	VpcEnableDnsSupport = var.VpcEnableDnsSupport
+	VpcInstanceTenancy = var.VpcInstanceTenancy
 }
