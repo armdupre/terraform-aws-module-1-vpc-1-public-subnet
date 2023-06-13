@@ -16,7 +16,11 @@ variable "PublicSubnetAvailabilityZone" {
 	default = "us-east-1a"
 	type = string
 }
-	PublicSubnetCidrBlock = "10.0.10.0/24"
+
+variable "PublicSubnetCidrBlock" {
+	default = "10.0.10.0/24"
+	type = string
+}
 
 variable "Region" {
 	default = "us-east-1"
