@@ -4,9 +4,9 @@ resource "aws_vpc" "Vpc" {
 	enable_dns_support = local.VpcEnableDnsSupport
 	enable_dns_hostnames = local.VpcEnableDnsHostnames
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_VPC_${local.RegionTag}"
+		Name = local.VpcName
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 
@@ -15,20 +15,20 @@ resource "aws_subnet" "PublicSubnet" {
 	cidr_block = local.PublicSubnetCidrBlock
 	vpc_id = aws_vpc.Vpc.id
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_PUBLIC_SUBNET_${local.RegionTag}"
+		Name = local.PublicSubnetName
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 
 resource "aws_security_group" "PublicSecurityGroup" {
-	name = "${local.UserLoginTag}_${local.ProjectTag}_PUBLIC_SECURITY_GROUP_${local.RegionTag}"
-	description = "${local.UserLoginTag}_${local.ProjectTag}_PUBLIC_SECURITY_GROUP_${local.RegionTag}"
+	name = local.PublicSecurityGroupName
+	description = local.PublicSecurityGroupName
 	vpc_id = aws_vpc.Vpc.id
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_PUBLIC_SECURITY_GROUP_${local.RegionTag}"
+		Name = local.PublicSecurityGroupName
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 
@@ -73,9 +73,9 @@ resource "aws_default_security_group" "DefaultEgress1" {
 resource "aws_internet_gateway" "InternetGw" {
 	vpc_id = aws_vpc.Vpc.id
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_INTERNET_GW_${local.RegionTag}"
+		Name = local.InternetGwName
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 
@@ -91,9 +91,9 @@ resource "aws_route" "PublicRoute" {
 resource "aws_route_table" "PublicRouteTable" {
 	vpc_id = aws_vpc.Vpc.id
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_PUBLIC_ROUTE_TABLE_${local.RegionTag}"
+		Name = local.PublicRouteTableName
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 

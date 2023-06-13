@@ -3,9 +3,13 @@ locals {
 	FlowLogGroupName = "${local.Preamble}-vpc-flow-log-group-${local.Region}"
 	FlowLogTrafficType = var.FlowLogTrafficType
 	InboundIPv4CidrBlock = var.InboundIPv4CidrBlock
+	InternetGwName = "${local.Preamble}-internet-gw-${local.Region}"
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}"
+	PublicRouteTableName = "${local.Preamble}-public-route-table-${local.Region}"
+	PublicSecurityGroupName = "${local.Preamble}-public-security-group-${local.Region}"
 	PublicSubnetAvailabilityZone = var.PublicSubnetAvailabilityZone
 	PublicSubnetCidrBlock = var.PublicSubnetCidrBlock
+	PublicSubnetName = "${local.Preamble}-public-subnet-${local.Region}"
 	Region = var.Region
 	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
@@ -16,4 +20,5 @@ locals {
 	VpcEnableDnsHostnames = var.VpcEnableDnsHostnames
 	VpcEnableDnsSupport = var.VpcEnableDnsSupport
 	VpcInstanceTenancy = var.VpcInstanceTenancy
+	VpcName = "${local.Preamble}-vpc-${local.Region}"
 }
