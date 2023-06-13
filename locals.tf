@@ -3,7 +3,7 @@ locals {
 	FlowLogGroupName = "${local.Preamble}-vpc-flow-log-group-${local.Region}"
 	FlowLogTrafficType = var.FlowLogTrafficType
 	InboundIPv4CidrBlock = var.InboundIPv4CidrBlock
-	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}
+	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}"
 	PublicSubnetAvailabilityZone = var.PublicSubnetAvailabilityZone
 	PublicSubnetCidrBlock = var.PublicSubnetCidrBlock
 	Region = var.Region
