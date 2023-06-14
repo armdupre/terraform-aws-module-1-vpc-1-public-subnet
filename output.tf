@@ -7,6 +7,7 @@ output "PublicSecurityGroup" {
 	description = "Security group resource associated with the public subnet"
 	value = {
 		"id" : aws_security_group.PublicSecurityGroup.id
+		"name" : aws_security_group.PublicSecurityGroup.name
 	}
 }
 
